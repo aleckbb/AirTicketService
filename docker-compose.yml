@@ -1,0 +1,6 @@
+﻿services:
+  airticketservice:
+    image: airticketservice
+    build:
+      context: .
+      dockerfile: AirTicketService/Dockerfile

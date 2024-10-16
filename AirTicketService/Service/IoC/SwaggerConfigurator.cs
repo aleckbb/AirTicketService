@@ -1,4 +1,4 @@
-﻿namespace AirTicketServiceWeb.Service.IoC;
+﻿namespace AirTicketService.Service.IoC;
 
 public static class SwaggerConfigurator
 {
@@ -7,8 +7,6 @@ public static class SwaggerConfigurator
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
     }
-
-
     public static void ConfigureApplication(IApplicationBuilder app)
     {
         app.UseSwagger();
