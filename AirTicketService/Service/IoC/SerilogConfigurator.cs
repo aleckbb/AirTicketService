@@ -14,6 +14,7 @@ public static class SerilogConfigurator
         });
         builder.Services.AddHttpContextAccessor();
     }
+
     public static void ConfigureApplication(IApplicationBuilder app)
     {
         app.UseSerilogRequestLogging();
