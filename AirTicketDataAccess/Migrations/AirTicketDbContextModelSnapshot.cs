@@ -45,6 +45,9 @@ namespace AirTicketDataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
+
                     b.ToTable("Airline");
                 });
 
@@ -74,6 +77,9 @@ namespace AirTicketDataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
+
                     b.HasIndex("TownId");
 
                     b.ToTable("Airport");
@@ -101,6 +107,9 @@ namespace AirTicketDataAccess.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
 
                     b.ToTable("Class");
                 });
@@ -138,6 +147,9 @@ namespace AirTicketDataAccess.Migrations
 
                     b.HasIndex("ClassId");
 
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
+
                     b.HasIndex("FlightId");
 
                     b.ToTable("ClassFlight");
@@ -165,6 +177,9 @@ namespace AirTicketDataAccess.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
 
                     b.ToTable("Country");
                 });
@@ -209,6 +224,9 @@ namespace AirTicketDataAccess.Migrations
 
                     b.HasIndex("DepartureAirportId");
 
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
+
                     b.ToTable("Flight");
                 });
 
@@ -234,6 +252,9 @@ namespace AirTicketDataAccess.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
 
                     b.ToTable("Role");
                 });
@@ -274,6 +295,9 @@ namespace AirTicketDataAccess.Migrations
 
                     b.HasIndex("ClassId");
 
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
+
                     b.HasIndex("FlightId");
 
                     b.HasIndex("UserId");
@@ -308,6 +332,9 @@ namespace AirTicketDataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
+
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
 
                     b.ToTable("Town");
                 });
@@ -353,6 +380,9 @@ namespace AirTicketDataAccess.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
 
                     b.HasIndex("RoleId");
 

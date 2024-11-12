@@ -1,7 +1,7 @@
 ﻿using AirTicketDataAccess;
 using Microsoft.EntityFrameworkCore;
 
-namespace AirTicketService.Service.IoC;
+namespace AirTicketService.IoC;
 
 public class DbContextConfigurator
 {

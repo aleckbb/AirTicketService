@@ -23,15 +23,25 @@ public class AirTicketDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CountryEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<CountryEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<TownEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<TownEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<AirportEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<AirportEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<AirlineEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<AirlineEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<FlightEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<FlightEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<ClassEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<ClassEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<TicketEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<TicketEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<UserEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<UserEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<RoleEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<RoleEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<ClassFlightEntity>().HasKey(x => x.Id);
+        modelBuilder.Entity<ClassFlightEntity>().HasIndex(x => x.ExternalId).IsUnique();
 
         modelBuilder.Entity<UserEntity>().HasOne(x => x.Role)
             .WithMany(x => x.Users).HasForeignKey(x => x.RoleId);

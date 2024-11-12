@@ -1,17 +1,12 @@
-using AirTicketService.Service.IoC;
+using AirTicketService.DI;
+using AirTicketService.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
-SerilogConfigurator.ConfigureService(builder);
-SwaggerConfigurator.ConfigureServices(builder.Services);
-DbContextConfigurator.ConfigureServices(builder);
+ApplicationConfigurator.ConfigureServices(builder);
 
 var app = builder.Build();
 
-SerilogConfigurator.ConfigureApplication(app);
-SwaggerConfigurator.ConfigureApplication(app);
-DbContextConfigurator.ConfigureApplication(app);
-
-app.UseHttpsRedirection();
+ApplicationConfigurator.ConfigureApplication(app);
 
 app.Run();

@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace AirTicketService.Service.IoC;
+namespace AirTicketService.IoC;
 
 public static class SerilogConfigurator
 {
