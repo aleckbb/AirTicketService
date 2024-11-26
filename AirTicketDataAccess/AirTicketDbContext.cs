@@ -1,4 +1,5 @@
 ﻿using AirTicketDataAccess.entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace AirTicketDataAccess;
@@ -16,12 +17,18 @@ public class AirTicketDbContext : DbContext
     public DbSet<AirportEntity> Airports { get; set; }
     public DbSet<FlightEntity> Flights { get; set; }
     public DbSet<AirlineEntity> Airlines { get; set; }
-    public DbSet<RoleEntity> Roles { get; set; }
     public DbSet<ClassEntity> Classes { get; set; }
     public DbSet<ClassFlightEntity> ClassFlights { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<IdentityUserClaim<int>>().ToTable("user_claims");
+        modelBuilder.Entity<IdentityUserLogin<int>>().ToTable("user_logins").HasNoKey();
+        modelBuilder.Entity<IdentityUserToken<int>>().ToTable("user_tokens").HasNoKey();
+        modelBuilder.Entity<IdentityRole<int>>().ToTable("user_roles");
+        modelBuilder.Entity<IdentityRoleClaim<int>>().ToTable("user_roles_claims");
+        modelBuilder.Entity<IdentityUserRole<int>>().ToTable("user_role_owners").HasNoKey();
+        
         modelBuilder.Entity<CountryEntity>().HasKey(x => x.Id);
         modelBuilder.Entity<CountryEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<TownEntity>().HasKey(x => x.Id);
@@ -38,13 +45,9 @@ public class AirTicketDbContext : DbContext
         modelBuilder.Entity<TicketEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<UserEntity>().HasKey(x => x.Id);
         modelBuilder.Entity<UserEntity>().HasIndex(x => x.ExternalId).IsUnique();
-        modelBuilder.Entity<RoleEntity>().HasKey(x => x.Id);
-        modelBuilder.Entity<RoleEntity>().HasIndex(x => x.ExternalId).IsUnique();
         modelBuilder.Entity<ClassFlightEntity>().HasKey(x => x.Id);
         modelBuilder.Entity<ClassFlightEntity>().HasIndex(x => x.ExternalId).IsUnique();
 
-        modelBuilder.Entity<UserEntity>().HasOne(x => x.Role)
-            .WithMany(x => x.Users).HasForeignKey(x => x.RoleId);
         modelBuilder.Entity<TicketEntity>().HasOne(x => x.User)
             .WithMany(x => x.Tickets).HasForeignKey(x => x.UserId);
         modelBuilder.Entity<TicketEntity>().HasOne(x => x.Class)

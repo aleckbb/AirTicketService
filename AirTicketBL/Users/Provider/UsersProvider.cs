@@ -29,8 +29,8 @@ public class UsersProvider : IUsersProvider
             (namePart == null || u.UserName.Contains(namePart)) &&
             (emailPart == null || u.Email.Contains(emailPart)) &&
             (creationTime == null || u.CreationTime == creationTime) &&
-            (modificationTime == null || u.ModificationTime == modificationTime) &&
-            (role == null || u.Role.Id == role)
+            (modificationTime == null || u.ModificationTime == modificationTime) /*&&
+            (role == null || u.Role.Id == role)*/
         );
         return _mapper.Map<IEnumerable<UserModel>>(users);
     }
