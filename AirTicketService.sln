@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTicketDataAccess", "AirT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTicketBL", "AirTicketBL\AirTicketBL.csproj", "{0FB84E2D-724B-40D7-948E-914273AE3430}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTicketUnitTests", "AirTicketUnitTests\AirTicketUnitTests.csproj", "{65A6E0D8-9DB1-49C1-8C93-121CC414AC61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,5 +31,9 @@ Global
 		{0FB84E2D-724B-40D7-948E-914273AE3430}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FB84E2D-724B-40D7-948E-914273AE3430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FB84E2D-724B-40D7-948E-914273AE3430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A6E0D8-9DB1-49C1-8C93-121CC414AC61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A6E0D8-9DB1-49C1-8C93-121CC414AC61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A6E0D8-9DB1-49C1-8C93-121CC414AC61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A6E0D8-9DB1-49C1-8C93-121CC414AC61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
